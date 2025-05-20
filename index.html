@@ -12,19 +12,24 @@
   >
   <style>
     body {
+      min-height: 100vh;
+      height: auto;
       margin: 0;
       padding: 0;
-      height: 100vh;
+      padding-bottom: 32px;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       font-family: Arial, sans-serif;
       background-color: #f9f9f9;
     }
     img {
       max-width: 500px;
       height: auto;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      display: block;
     }
     h1 {
       text-align: center;
@@ -34,24 +39,77 @@
 </head>
 <body>
   <img src="logo.png" alt="Logo">
+  <div style="height: 32px;"></div>
+  <div class="container" style="max-width: 600px; margin-bottom: 40px;">
+    <h1>About Us</h1>
+    <ul style="font-size: 1.15rem; line-height: 1.7;">
+      <li>Mobile (iOS, Android, Cross Platform)</li>
+      <li>Web</li>
+      <li>Backend (Server, Cloud)</li>
+      <li>AI Integration</li>
+      <li>Design &amp; Marketing</li>
+      <li>Much more!</li>
+    </ul>
+  </div>
+  <div style="height: 32px;"></div>
   <div class="container">
-  <h1>Contact Us</h1>
-  <form target="_blank" action="https://formsubmit.co/contact@appready.dev" method="POST">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-        </div>
-        <div class="col">
-          <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+    <h1>Contact Us</h1>
+    <div class="btn-group btn-group-toggle mb-4 justify-content-center d-flex" data-toggle="buttons" style="display: flex; justify-content: center;">
+      <label class="btn btn-outline-dark active" id="formOptionLabel">
+        <input type="radio" name="contactOption" id="formOption" autocomplete="off" checked> Form
+      </label>
+      <label class="btn btn-outline-dark" id="emailOptionLabel">
+        <input type="radio" name="contactOption" id="emailOption" autocomplete="off"> Email
+      </label>
+    </div>
+    <div id="contactEmail" style="display: none; text-align: center; margin-bottom: 24px;">
+      <a href="mailto:contact@appready.dev?subject=Website%20Inquiry" class="btn btn-lg btn-dark" style="min-width: 320px;">contact@appready.dev</a>
+    </div>
+    <form id="contactForm" target="_blank" action="https://formsubmit.co/contact@appready.dev" method="POST" style="display: block;">
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col">
+            <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+          </div>
+          <div class="col">
+            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <textarea placeholder="Inquire about a project, a quote, or any question(s) you may have..." class="form-control" name="message" rows="10" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
-  </form>
-</div>
+      <div class="form-group">
+        <textarea placeholder="Inquire about a project, a quote, or any question(s) you may have..." class="form-control" name="message" rows="10" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
+    </form>
+  </div>
+  <footer style="width: 100%; text-align: center; margin-top: 40px; color: #888; font-size: 1rem;">
+    &copy; <span id="footer-year"></span> App Ready Studio
+  </footer>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    // Contact option toggle logic
+    const emailOption = document.getElementById('emailOption');
+    const formOption = document.getElementById('formOption');
+    const contactEmail = document.getElementById('contactEmail');
+    const contactForm = document.getElementById('contactForm');
+    const emailLabel = document.getElementById('emailOptionLabel');
+    const formLabel = document.getElementById('formOptionLabel');
+    formOption.addEventListener('change', function() {
+      if (formOption.checked) {
+        contactEmail.style.display = 'none';
+        contactForm.style.display = 'block';
+        formLabel.classList.add('active');
+        emailLabel.classList.remove('active');
+      }
+    });
+    emailOption.addEventListener('change', function() {
+      if (emailOption.checked) {
+        contactEmail.style.display = 'block';
+        contactForm.style.display = 'none';
+        emailLabel.classList.add('active');
+        formLabel.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
