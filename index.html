@@ -1,126 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App Ready - Your Idea. App Ready.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="font-sans">
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-r from-cyan-500 to-blue-700 text-white py-24 px-6 text-center">
-    <div class="max-w-4xl mx-auto">
-      <div class="mx-auto mb-6 w-48 h-48 flex items-center justify-center">
-        <img src="logo.png" alt="App Ready logo" class="w-full h-full object-contain">
-      </div>
-      <h1 class="text-5xl font-bold mb-4"><span class="text-white">Your Idea.</span> <span class="text-orange-400">App Ready.</span></h1>
-      <p class="text-lg mb-8 text-white/90">Helping startups and businesses launch scalable, modern apps.</p>
-      <div class="flex items-center justify-center gap-4 flex-wrap">
-        <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" class="bg-orange-400 hover:bg-orange-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition focus:outline-none focus:ring-4 focus:ring-orange-300">Get Started</button>
-        <!-- <button class="bg-white text-blue-700 font-semibold py-3 px-6 rounded-xl shadow-lg hover:bg-gray-100 transition focus:outline-none focus:ring-4 focus:ring-white/60">Our Experience</button> -->
-      </div>
-    </div>
-  </section>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AppReady — 24-hour App Store rejection-risk audits</title>
+  <meta name="description" content="AppReady runs 24-hour App Store rejection-risk audits for React Native, Expo, and AI-built mobile apps before submission or resubmission.">
+  <link rel="canonical" href="https://appready.dev/">
+  <meta property="og:title" content="AppReady — 24-hour App Store rejection-risk audits">
+  <meta property="og:description" content="Find privacy, account deletion, IAP, reviewer-access, and QA evidence gaps before Apple does.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://appready.dev/">
+  <meta property="og:image" content="https://appready.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AppReady — 24-hour App Store rejection-risk audits">
+  <meta name="twitter:description" content="Blocker-first audit reports for React Native / Expo teams preparing iOS submission.">
+  <meta name="theme-color" content="#060912">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #060912;
+      --panel: rgba(15, 23, 36, .9);
+      --panel-strong: #101a2b;
+      --text: #f3f7ff;
+      --muted: #a8b3c7;
+      --line: #263449;
+      --accent: #6ee7b7;
+      --accent-2: #60a5fa;
+      --warn: #fbbf24;
+      --danger: #fb7185;
+      --ok: #34d399;
+    }
 
-  <!-- About Us -->
-  <section class="py-20 px-6 bg-gray-900 text-white">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6">Who We Are</h2>
-      <p class="text-lg mb-10 text-white/90">App Ready is an experienced team focused on world-class development for startups and established companies.</p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-md">
-          <div class="text-4xl mb-3" aria-hidden="true">🚀</div>
-          <p class="font-semibold text-white">Fast Development</p>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-md">
-          <div class="text-4xl mb-3" aria-hidden="true">📱</div>
-          <p class="font-semibold text-white">Mobile Experts</p>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-md">
-          <div class="text-4xl mb-3" aria-hidden="true">🔒</div>
-          <p class="font-semibold text-white">Security Focused</p>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-2xl shadow-md">
-          <div class="text-4xl mb-3" aria-hidden="true">🤝</div>
-          <p class="font-semibold text-white">Startup-Friendly</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    * { box-sizing: border-box; }
 
-  <!-- Services -->
-  <section class="py-20 px-6 bg-gray-50 text-gray-900">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">What We Do</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-white p-8 rounded-2xl shadow-md text-left">
-          <h3 class="text-xl font-semibold mb-3 text-blue-700">Mobile App Development</h3>
-          <p class="text-gray-700">iOS, Android, Cross Platform (React Native, Flutter)</p>
-        </div>
-        <div class="bg-white p-8 rounded-2xl shadow-md text-left">
-          <h3 class="text-xl font-semibold mb-3 text-blue-700">Web Development</h3>
-          <p class="text-gray-700">PWAs, React, Cloud Services, Databases</p>
-        </div>
-        <div class="bg-white p-8 rounded-2xl shadow-md text-left">
-          <h3 class="text-xl font-semibold mb-3 text-blue-700">AI & Machine Learning</h3>
-          <p class="text-gray-700">LLM Integration and Custom AI Features</p>
-        </div>
-        <div class="bg-white p-8 rounded-2xl shadow-md text-left">
-          <h3 class="text-xl font-semibold mb-3 text-blue-700">App Strategy & Consulting</h3>
-          <p class="text-gray-700">MVP Planning, Scaling, Product Management, Security</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    html { scroll-behavior: smooth; }
 
-  <!-- Call to Action -->
-  <section class="py-20 bg-gradient-to-r from-blue-700 to-cyan-500 text-white text-center">
-    <h2 class="text-4xl font-bold mb-6">Ready to Launch Your App?</h2>
-    <a href="mailto:contact@appready.dev" class="inline-block bg-orange-400 hover:bg-orange-500 text-white font-semibold py-4 px-8 rounded-xl shadow-lg transition focus:outline-none focus:ring-4 focus:ring-orange-300">
-      Email Us
-    </a>
-  </section>
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 0, #172554 0, rgba(23, 37, 84, .45) 30rem, transparent 48rem),
+        radial-gradient(circle at 92% 6%, rgba(14, 165, 233, .2) 0, transparent 28rem),
+        radial-gradient(circle at 55% 72%, rgba(110, 231, 183, .08) 0, transparent 36rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
 
-  <!-- Divider -->
-  <div class="bg-gray-900 py-8">
-    <div class="flex items-center justify-center max-w-md mx-auto px-6">
-      <div class="flex-grow border-t border-gray-600"></div>
-      <span class="px-4 text-gray-400 font-semibold">or</span>
-      <div class="flex-grow border-t border-gray-600"></div>
-    </div>
-  </div>
+    a { color: var(--accent); }
 
-  <!-- Contact -->
-  <section id="contact" class="pt-12 pb-20 bg-gray-900 text-white">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-8 text-center">Get In Touch</h2>
-      <form class="space-y-6" target="_blank" action="https://formsubmit.co/contact@appready.dev" method="POST">
-        <!-- Honeypot spam protection -->
-        <input type="text" name="_honey" style="display:none">
+    a:focus-visible,
+    button:focus-visible,
+    .btn:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid rgba(96, 165, 250, .9);
+      outline-offset: 4px;
+      border-radius: 12px;
+    }
 
-        <!-- FormSubmit configuration -->
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="New Website Inquiry - App Ready">
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 28px; }
 
-        <input type="text" name="name" placeholder="Your Name" class="w-full border border-gray-700 bg-gray-800 text-white p-4 rounded-xl placeholder-gray-300" required />
-        <input type="email" name="email" placeholder="Your Email" class="w-full border border-gray-700 bg-gray-800 text-white p-4 rounded-xl placeholder-gray-300" required />
-        <input type="text" name="company" placeholder="Company" class="w-full border border-gray-700 bg-gray-800 text-white p-4 rounded-xl placeholder-gray-300" />
-        <textarea name="message" placeholder="Your Message" rows="5" class="w-full border border-gray-700 bg-gray-800 text-white p-4 rounded-xl placeholder-gray-300" required></textarea>
-        <div class="text-center">
-          <button type="submit" class="bg-blue-600 text-white font-semibold py-3 px-16 rounded-xl hover:bg-blue-700 transition focus:outline-none focus:ring-4 focus:ring-blue-400">Send Message</button>
-        </div>
-      </form>
-    </div>
-  </section>
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 0 42px;
+    }
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-8 text-center">
-    <p>&copy; <span id="year"></span> App Ready. All rights reserved.</p>
-  </footer>
+    .brand {
+      font-weight: 900;
+      letter-spacing: -.04em;
+      font-size: 24px;
+      color: var(--text);
+      text-decoration: none;
+    }
 
-  <script>
-    // Set the current year dynamically
-    document.getElementById('year').textContent = new Date().getFullYear();
+    .navlinks { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .navlinks a { color: var(--muted); text-decoration: none; font-weight: 700; }
+    .navlinks a:hover { color: var(--text); }
+
+    .badge,
+    .eyebrow {
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(255, 255, 255, .03);
+    }
+
+    .eyebrow { color: var(--accent); margin-bottom: 18px; font-weight: 800; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      gap: 34px;
+      align-items: center;
+      padding: 22px 0 52px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 80px);
+      line-height: .95;
+      letter-spacing: -.065em;
+      margin: 0 0 22px;
+    }
+
+    h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -.045em; line-height: 1.05; margin: 0 0 14px; }
+    h3 { margin: 0 0 8px; font-size: 19px; }
+    p { color: var(--muted); margin: 0 0 18px; }
+    .lead { font-size: 20px; max-width: 780px; }
+    .microcopy { color: #c9d4e8; font-size: 14px; margin-top: 12px; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .actions.center { justify-content: center; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 13px 18px;
+      font-weight: 900;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      min-height: 48px;
+    }
+
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #04111f; border: 0; }
+    .btn.secondary { color: var(--text); background: rgba(255, 255, 255, .04); }
+    .btn:hover { transform: translateY(-1px); }
+
+    .panel,
+    .card,
+    .report-card,
+    .price-card,
+    details {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 18px 80px rgba(0, 0, 0, .28);
+    }
+
+    .panel,
+    .card,
+    .report-card,
+    .price-card { padding: 22px; }
+
+    .report-card { position: relative; overflow: hidden; }
+    .report-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(110, 231, 183, .11), transparent 38%); pointer-events: none; }
+    .report-card > * { position: relative; }
+
+    .row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, .08); }
+    .row:first-child { padding-top: 0; }
+    .row span { color: var(--muted); }
+    .warn { color: var(--warn); font-weight: 900; }
+    .danger { color: var(--danger); font-weight: 900; }
+    .ok { color: var(--ok); font-weight: 900; }
+
+    .section { padding: 54px 0; }
+    .section-intro { max-width: 760px; margin-bottom: 22px; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card { background: rgba(15, 23, 36, .74); }
+
+    .checks { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 10px; }
+    .checks li { color: #dbe7fa; padding-left: 26px; position: relative; }
+    .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
+
+    .pain-grid .card strong { color: var(--text); display: block; margin-bottom: 4px; }
+
+    .steps { counter-reset: step; }
+    .steps .card { position: relative; padding-top: 58px; }
+    .steps .card::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      top: 20px;
+      left: 22px;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #04111f;
+      font-weight: 900;
+    }
+
+    .report-preview {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .mini-report {
+      background: #f8fafc;
+      color: #172033;
+      border-radius: 16px;
+      padding: 20px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      box-shadow: inset 0 0 0 1px rgba(15, 23, 42, .08);
+    }
+    .mini-report p,
+    .mini-report li { color: #334155; }
+    .mini-report h3 { color: #0f172a; }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+    .price { font-size: clamp(36px, 6vw, 58px); letter-spacing: -.06em; margin: 10px 0; color: var(--text); font-weight: 950; }
+    .muted { color: var(--muted); }
+
+    details { padding: 18px 20px; margin: 10px 0; }
+    summary { cursor: pointer; font-weight: 850; color: var(--text); }
+    details p { margin: 12px 0 0; }
+
+    .final-cta { text-align: center; padding: 42px; background: linear-gradient(135deg, rgba(110, 231, 183, .12), rgba(96, 165, 250, .12)); }
+    .footer { color: var(--muted); border-top: 1px solid var(--line); padding: 30px 0 18px; font-size: 14px; }
+
+    @media (max-width: 880px) {
+      .hero,
+      .report-preview,
+      .split { grid-template-columns: 1fr; }
+      .grid,
+      .grid.two { grid-template-columns: 1fr; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .wrap { padding: 20px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Can AppReady guarantee App Store approval?","acceptedAnswer":{"@type":"Answer","text":"No. AppReady identifies avoidable rejection risks and operational gaps. Apple makes the final review decision."}},
+      {"@type":"Question","name":"Do you need full repository access?","acceptedAnswer":{"@type":"Answer","text":"No. Read-only GitHub access, a zip upload, TestFlight access, screenshots, or limited evidence can work depending on audit depth."}},
+      {"@type":"Question","name":"What do I receive after the audit?","acceptedAnswer":{"@type":"Answer","text":"You receive a blocker-first report with verdict, evidence, risk level, fix order, reviewer notes draft, and optional Codex/Cursor fix prompts."}}
+    ]
+  }
   </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="./">AppReady</a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="#checks">What we check</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="sample-report.html">Sample report</a>
+        <a href="intake.html">Request audit</a>
+      </nav>
+      <div class="badge">24-hour App Store audit</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Built first for React Native / Expo teams</div>
+          <h1>Catch App Store rejection risks before you submit.</h1>
+          <p class="lead">AppReady runs a blocker-first readiness audit for mobile teams preparing iOS submission or resubmission. We check privacy, account deletion, IAP, reviewer access, QA evidence, and repo/config risks before Apple reviews your build.</p>
+          <div class="actions">
+            <a class="btn primary" href="intake.html">Request a 24-hour audit</a>
+            <a class="btn secondary" href="sample-report.html">View sample report</a>
+          </div>
+          <p class="microcopy">Takes 5–7 minutes. Read-only repo, zip upload, TestFlight, or limited-evidence review available. No approval guarantee; we identify avoidable rejection risks.</p>
+        </div>
+
+        <aside class="report-card" aria-label="Sample audit result preview">
+          <div class="row"><span>Sample verdict</span><strong>Do Not Submit</strong></div>
+          <div class="row"><span>Risk</span><span class="danger">High</span></div>
+          <div class="row"><span>Turnaround</span><strong>24 hours</strong></div>
+          <ul class="checks">
+            <li>Privacy Policy URL returns 404.</li>
+            <li>No in-app account deletion path found.</li>
+            <li>Restore purchase is missing from subscription flow.</li>
+            <li>Reviewer cannot access paid/authenticated screens.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="section" aria-labelledby="pain-heading">
+        <div class="section-intro">
+          <h2 id="pain-heading">Most App Review delays are avoidable.</h2>
+          <p>Founders usually do not need another vague checklist. They need to know which issues can cause rejection, stall review, or embarrass the launch.</p>
+        </div>
+        <div class="grid pain-grid">
+          <div class="card"><strong>Privacy mismatch</strong><p>SDKs collect data, but privacy policy, App Privacy labels, or disclosures do not match.</p></div>
+          <div class="card"><strong>Reviewer blocked</strong><p>No demo credentials, empty test account, email verification wall, or unclear setup steps.</p></div>
+          <div class="card"><strong>Payment issue</strong><p>Restore purchase, subscription state, entitlement, or external payment language is missing or confusing.</p></div>
+          <div class="card"><strong>Account deletion missing</strong><p>Apps with account creation need an accessible in-app account deletion initiation path.</p></div>
+          <div class="card"><strong>SDK manifest risk</strong><p>Privacy manifests, signatures, Info.plist permissions, or third-party SDK disclosures are incomplete.</p></div>
+          <div class="card"><strong>QA evidence thin</strong><p>No real-device TestFlight evidence for first launch, login, offline state, keyboard/forms, or critical flows.</p></div>
+        </div>
+      </section>
+
+      <section id="checks" class="section" aria-labelledby="checks-heading">
+        <div class="section-intro">
+          <h2 id="checks-heading">What the audit checks</h2>
+          <p>The review is practical: identify launch blockers, capture evidence, and hand the team a fix order they can execute.</p>
+        </div>
+        <div class="grid two">
+          <div class="card"><h3>Repo / technical configuration</h3><ul class="checks"><li>Info.plist permission descriptions</li><li>PrivacyInfo.xcprivacy and SDK manifest risk</li><li>Staging/debug endpoints and exposed config</li><li>Push notification and deep-link configuration</li></ul></div>
+          <div class="card"><h3>App Store review readiness</h3><ul class="checks"><li>Privacy/support URLs and App Privacy label risk</li><li>Account deletion path and policy consistency</li><li>Reviewer notes, demo credentials, and test data</li><li>Metadata, screenshots, age rating, and sensitive categories</li></ul></div>
+          <div class="card"><h3>Monetization / IAP</h3><ul class="checks"><li>StoreKit or subscription visibility</li><li>Restore purchase path</li><li>Trial/renewal/cancellation language</li><li>External payment and entitlement risks</li></ul></div>
+          <div class="card"><h3>QA evidence</h3><ul class="checks"><li>Real-device TestFlight evidence</li><li>First launch, login, and core flow pass</li><li>Offline/no-network and error states</li><li>20-minute crash sanity check where evidence exists</li></ul></div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="section" aria-labelledby="how-heading">
+        <div class="section-intro">
+          <h2 id="how-heading">How it works</h2>
+          <p>A narrow, operational flow. No heavy consulting process before you know whether the build is safe to submit.</p>
+        </div>
+        <div class="grid steps">
+          <div class="card"><h3>Submit intake</h3><p>Share app details, URLs, TestFlight/repo evidence, reviewer access notes, and known risk areas. Do not send production secrets.</p></div>
+          <div class="card"><h3>We audit risks</h3><p>We inspect the evidence against App Store review risks, privacy requirements, account deletion, IAP, reviewer access, and QA signals.</p></div>
+          <div class="card"><h3>Fix + submit</h3><p>You receive a verdict, blockers, evidence, prioritized fix order, reviewer notes draft, and optional Codex/Cursor prompts.</p></div>
+        </div>
+      </section>
+
+      <section class="section report-preview" aria-labelledby="sample-heading">
+        <div>
+          <h2 id="sample-heading">See the output before you buy.</h2>
+          <p>The report is designed for action, not ceremony: verdict first, then blocker evidence, fix order, reviewer notes, assumptions, and implementation prompts.</p>
+          <div class="actions">
+            <a class="btn primary" href="sample-report.html">Open sample report</a>
+            <a class="btn secondary" href="sample-report.html" download>Download sample HTML</a>
+          </div>
+        </div>
+        <div class="mini-report" role="group" aria-label="Sample report excerpt">
+          <h3>AppReady Audit: FitNote AI</h3>
+          <p><strong>Verdict:</strong> Do Not Submit<br><strong>Risk:</strong> High<br><strong>Build:</strong> 1.4.2 / 87</p>
+          <ol>
+            <li>Privacy Policy URL returns 404. Fix before submission.</li>
+            <li>Account creation exists, but deletion path is missing.</li>
+            <li>Subscriptions detected; Restore Purchases is not visible.</li>
+          </ol>
+          <p><strong>Reviewer notes draft:</strong> demo access, subscription state, deletion path, and test instructions.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="trust-heading">
+        <div class="section-intro">
+          <h2 id="trust-heading">Built for private app teams.</h2>
+          <p>The biggest objection is justified: you should not hand app access to a random service. The pilot is structured to minimize unnecessary access.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><h3>Read-only by default</h3><p>Use read-only GitHub access, a zip export, TestFlight invite, screenshots, or limited evidence. We do not need production secrets.</p></div>
+          <div class="card"><h3>Confidential pilot handling</h3><p>Audit materials are used only for the requested review, kept out of public examples, and can be deleted after delivery on request.</p></div>
+          <div class="card"><h3>Source-grounded review</h3><p>Checks are grounded in Apple review expectations, App Privacy labels, account deletion requirements, SDK/privacy manifest risk, and practical launch QA.</p></div>
+          <div class="card"><h3>Clear boundary</h3><p>AppReady is not legal advice, a penetration test, or an approval guarantee. It reduces avoidable rejection and launch-readiness risk.</p></div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section split" aria-labelledby="pricing-heading">
+        <div>
+          <h2 id="pricing-heading">Pilot offer</h2>
+          <p>Start with the sharp wedge: a 24-hour App Store Rejection-Risk Audit for teams close to submission.</p>
+          <div class="price">$299–$500</div>
+          <p class="muted">Per submission review during the pilot. Scope depends on available evidence and urgency.</p>
+        </div>
+        <div class="price-card">
+          <h3>Includes</h3>
+          <ul class="checks">
+            <li>Submit / Submit After Fixes / Do Not Submit verdict</li>
+            <li>Critical blockers with evidence</li>
+            <li>High-risk and medium-risk issue list</li>
+            <li>Recommended fix order</li>
+            <li>Reviewer notes draft</li>
+            <li>Codex/Cursor fix prompts where useful</li>
+          </ul>
+          <p><strong>Best fit:</strong> React Native / Expo apps preparing first submission, urgent update, or resubmission.</p>
+          <p><strong>Not a fit:</strong> guaranteed approval, legal advice, full enterprise security audit, or Android-only review.</p>
+          <div class="actions"><a class="btn primary" href="intake.html">Start intake</a></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-heading">
+        <div class="section-intro">
+          <h2 id="faq-heading">FAQ</h2>
+          <p>Short answers to the objections that usually block founders from requesting a review.</p>
+        </div>
+        <details><summary>Can you guarantee App Store approval?</summary><p>No. Anyone promising guaranteed approval is selling certainty they do not control. We identify avoidable rejection risks and help you submit with fewer obvious blockers.</p></details>
+        <details><summary>Do you need full repo access?</summary><p>No. Read-only repo access is useful, but zip upload, TestFlight access, screenshots, URLs, and reviewer notes can support a limited-evidence audit. The report will label assumptions clearly.</p></details>
+        <details><summary>What if my app was already rejected?</summary><p>Good fit. Include the rejection message in intake. The audit focuses on what to fix before resubmission and how to explain the fix to App Review.</p></details>
+        <details><summary>Is this legal advice or a security certification?</summary><p>No. It is an operational readiness audit. Legal, regulated-category, and deep security questions should go to qualified specialists.</p></details>
+        <details><summary>Do you support Expo and React Native?</summary><p>Yes. The pilot is built first for Expo and React Native teams, especially AI-built apps and agencies preparing iOS submission.</p></details>
+        <details><summary>Do you review subscriptions and restore purchase?</summary><p>Yes. We check visible restore-purchase paths, reviewer testability, subscription language, entitlement state evidence, and obvious external-payment risk.</p></details>
+        <details><summary>What do I receive after 24 hours?</summary><p>A Markdown/HTML report with verdict, blockers, risk level, evidence, fix order, reviewer notes draft, and implementation prompts where useful.</p></details>
+      </section>
+
+      <section class="section final-cta panel" aria-labelledby="final-heading">
+        <h2 id="final-heading">Submitting soon? Do not let Apple be your first QA pass.</h2>
+        <p>Get a 24-hour rejection-risk audit before review. Read-only repo, zip upload, TestFlight, or limited-evidence review available.</p>
+        <div class="actions center">
+          <a class="btn primary" href="intake.html">Request an audit</a>
+          <a class="btn secondary" href="mailto:hello@appready.dev?subject=AppReady%20audit%20request">Email hello@appready.dev</a>
+        </div>
+        <p class="microcopy">The email fallback uses the AppReady pilot inbox; intake form submissions remain the primary review queue.</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      AppReady is an operational readiness audit, not legal advice, a security guarantee, or an App Store approval guarantee. Do not submit production secrets through the MVP intake form.
+    </footer>
+  </div>
 </body>
 </html>
