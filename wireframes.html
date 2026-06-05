@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StoreReady AI Wireframes</title>
+  <style>
+    :root { --bg:#08090a; --panel:#101113; --panel2:#15171a; --text:#f7f8f8; --muted:#8a8f98; --line:rgba(255,255,255,.1); --accent:#6ee7b7; --blue:#60a5fa; --danger:#fb7185; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.45} .wrap{max-width:1180px;margin:0 auto;padding:34px 22px 80px} h1{font-size:48px;line-height:1;letter-spacing:-.055em;margin:0 0 10px} h2{font-size:26px;letter-spacing:-.035em;margin:0 0 16px} p{color:var(--muted);margin:0 0 18px}.section{margin:30px 0;padding:22px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}.wire{border:1px dashed rgba(255,255,255,.24);border-radius:16px;padding:18px;background:#0b0c0e}.header,.footer,.bar{border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;background:rgba(255,255,255,.035);display:flex;justify-content:space-between;gap:12px;align-items:center}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.box{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.04);padding:14px;margin:8px 0}.big{min-height:230px}.cta{display:inline-block;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--blue));color:#04111f;font-weight:800;padding:9px 12px;margin-right:8px}.ghost{display:inline-block;border:1px solid var(--line);border-radius:9px;padding:8px 12px;color:var(--text)}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center}.arrow{color:var(--muted);font-size:26px;text-align:center}.label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.danger{color:var(--danger);font-weight:800}.mobile{max-width:360px;margin:0 auto}.mobile .hero,.mobile .grid2,.mobile .grid3,.mobile .steps{display:block}.mobile .box{min-height:auto}.small{font-size:13px;color:var(--muted)}ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}li{margin:5px 0}@media(max-width:850px){.hero,.grid2,.grid3,.steps{grid-template-columns:1fr}.arrow{display:none}h1{font-size:36px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>StoreReady AI wireframes</h1>
+    <p>Structural wireframes for a conversion-ready App Store rejection-risk audit landing page.</p>
+
+    <section class="section">
+      <h2>Desktop full-page wireframe</h2>
+      <div class="wire">
+        <div class="header"><strong>StoreReady AI</strong><span class="small">What we check · Pricing · FAQ · <b>Request audit</b></span></div>
+        <div class="hero">
+          <div class="box big">
+            <div class="label">24-hour App Store rejection-risk audit</div>
+            <h2>Catch App Store rejection risks before you submit.</h2>
+            <p>For React Native / Expo teams preparing iOS submission or resubmission. We audit repo, metadata, privacy setup, IAP, reviewer access, and QA evidence.</p>
+            <span class="cta">Request audit</span><span class="ghost">View sample report</span>
+            <p class="small">Read-only repo, zip upload, or limited-evidence review.</p>
+          </div>
+          <div class="box big">
+            <div class="label">Sample audit card</div>
+            <p><strong>Verdict:</strong> Do Not Submit</p>
+            <p><strong>Risk:</strong> <span class="danger">High</span></p>
+            <ul><li>Privacy URL returns 404</li><li>Account deletion missing</li><li>Restore purchase not visible</li><li>Reviewer credentials absent</li></ul>
+          </div>
+        </div>
+        <div class="bar"><strong>Pain section</strong><span>Privacy mismatch · Reviewer blocked · Payment issue · SDK manifests · Deep links</span></div>
+        <div class="grid2">
+          <div class="box"><strong>Technical checks</strong><ul><li>Info.plist</li><li>Privacy manifest</li><li>SDKs</li><li>Debug endpoints</li></ul></div>
+          <div class="box"><strong>Review checks</strong><ul><li>Privacy/support URLs</li><li>Account deletion</li><li>Demo credentials</li><li>Metadata</li></ul></div>
+        </div>
+        <div class="steps">
+          <div class="box"><strong>1. Submit intake</strong><p>Repo/zip, URLs, TestFlight, notes.</p></div><div class="arrow">→</div>
+          <div class="box"><strong>2. We audit risks</strong><p>Technical, privacy, metadata, QA.</p></div><div class="arrow">→</div>
+          <div class="box"><strong>3. Fix + submit</strong><p>Blockers, reviewer notes, fix order.</p></div>
+        </div>
+        <div class="box"><strong>Sample report preview</strong><p>Detailed blocker list with evidence, App Review notes draft, passed checks, not-checked assumptions.</p></div>
+        <div class="grid3"><div class="box"><strong>Read-only access</strong><p>No production secrets.</p></div><div class="box"><strong>Source-grounded</strong><p>Apple guidelines and SDK requirements.</p></div><div class="box"><strong>No false guarantee</strong><p>Risk reduction, not approval promise.</p></div></div>
+        <div class="box"><strong>Pilot pricing: $299–$500</strong><p>24-hour report, verdict, blockers, reviewer notes, prioritized fixes. <span class="cta">Request audit</span></p></div>
+        <div class="box"><strong>FAQ accordion</strong><p>Approval guarantee? Repo access? Already rejected? Legal advice? Expo support? IAP review?</p></div>
+        <div class="footer"><strong>Final CTA</strong><span>Submitting soon? Don’t let Apple be your first QA pass. [Request audit]</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Mobile wireframe</h2>
+      <div class="wire mobile">
+        <div class="header"><strong>StoreReady AI</strong><span>☰</span></div>
+        <div class="box"><div class="label">24-hour audit</div><h2>Catch rejection risks before you submit.</h2><p>For React Native / Expo teams preparing iOS review.</p><span class="cta">Request audit</span><p></p><span class="ghost">Sample report</span></div>
+        <div class="box"><strong>Verdict card</strong><p>Do Not Submit · High Risk</p><ul><li>Privacy URL 404</li><li>Account deletion miss</li></ul></div>
+        <div class="box"><strong>Pain cards</strong><p>Stacked: privacy, reviewer access, IAP, SDK, deep links.</p></div>
+        <div class="box"><strong>What we check</strong><p>Stacked check categories.</p></div>
+        <div class="box"><strong>How it works</strong><p>1 Submit → 2 Audit → 3 Fix + submit</p></div>
+        <div class="box"><strong>Trust/security</strong><p>Read-only · source-grounded · no guarantee.</p></div>
+        <div class="box"><strong>Pricing</strong><p>$299–$500</p><span class="cta">Request audit</span></div>
+        <div class="box"><strong>FAQ + final CTA</strong></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

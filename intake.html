@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!-- html-validate-disable form-dup-name -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request an AppReady audit</title>
+  <meta name="description" content="Submit app, repo, TestFlight, privacy, monetization, QA, and reviewer-access details for an AppReady audit.">
+  <style>
+    :root{color-scheme:dark;--bg:#060912;--panel:#0f1724;--panel2:#111d2f;--text:#f3f7ff;--muted:#a8b3c7;--line:#263449;--accent:#6ee7b7;--accent2:#60a5fa;--warn:#fbbf24;--danger:#fb7185;--ok:#34d399}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 15% 0,#172554 0,rgba(23,37,84,.42) 30rem,transparent 46rem),radial-gradient(circle at 90% 10%,rgba(14,165,233,.18) 0,transparent 26rem),var(--bg);color:var(--text);line-height:1.55}a{color:var(--accent)}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(96,165,250,.9);outline-offset:3px}.wrap{max-width:1160px;margin:0 auto;padding:28px}.nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:14px 0 42px}.brand{font-weight:900;letter-spacing:-.04em;font-size:24px;color:var(--text);text-decoration:none}.navlinks{display:flex;gap:16px;flex-wrap:wrap}.navlinks a{color:var(--muted);text-decoration:none;font-weight:700}.badge{border:1px solid var(--line);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:13px}.section{padding:28px 0}h1{font-size:clamp(42px,7vw,76px);line-height:.95;letter-spacing:-.065em;margin:0 0 22px}h2{font-size:28px;letter-spacing:-.04em;margin:0 0 10px}h3{margin:0 0 8px;font-size:19px}p{color:var(--muted);margin:0 0 18px}.lead{font-size:20px;max-width:850px}.panel,.notice,.fieldgroup{background:rgba(15,23,36,.88);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 18px 80px rgba(0,0,0,.28)}.notice{border-radius:14px;margin:18px 0}.notice.ok{border-color:rgba(52,211,153,.55);color:var(--ok)}.notice.error{border-color:rgba(251,113,133,.6);color:var(--danger)}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field.inline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}label,legend{font-weight:800;color:var(--text)}fieldset{border:0;margin:0;padding:0}.hint{font-size:13px;color:var(--muted);margin:0}.required{color:var(--accent)}input,select,textarea{width:100%;border:1px solid var(--line);background:#08111f;color:var(--text);border-radius:12px;padding:12px;font:inherit}textarea{min-height:110px}.checkgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.check{display:flex;gap:9px;align-items:flex-start;color:#dbe7fa;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:10px}.check input{width:auto;margin-top:4px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:13px 18px;font-weight:900;text-decoration:none;border:1px solid var(--line);min-height:48px}.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04111f;border:0}.btn.secondary{color:var(--text);background:rgba(255,255,255,.04)}button.btn{cursor:pointer}.privacy-note{border-left:4px solid var(--accent);background:rgba(110,231,183,.06);padding:14px 16px;border-radius:12px}.footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0;color:var(--muted);font-size:14px}@media(max-width:860px){.formgrid,.field.inline,.checkgrid{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}.wrap{padding:20px}h1{font-size:44px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="./">AppReady</a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="./">Home</a>
+        <a href="store-readiness.html">Store Readiness</a>
+        <a href="sample-report.html">Sample report</a>
+      </nav>
+      <div class="badge">Hosted AppReady intake</div>
+    </header>
+
+    <main>
+      <section class="section">
+        <h1>Request an audit.</h1>
+        <p class="lead">This is the live AppReady intake form for App Store rejection-risk and launch-readiness audits. It collects the details needed to review your app without a long back-and-forth.</p>
+        <div class="privacy-note">
+          <strong>Access and privacy:</strong> Use read-only repo access, a zip export link, TestFlight invite, screenshots, or walkthrough videos. Do not submit production secrets, API keys, private tokens, or real user passwords. Audit materials are used only for the requested review and can be deleted after delivery on request.
+        </div>
+      </section>
+
+      <div id="form-status" class="notice" role="status" aria-live="polite" hidden></div>
+
+      <form id="intake-form" class="panel" action="/api/intake" method="post" data-fallback-email="hello@appready.dev">
+        <section class="fieldgroup" aria-labelledby="customer-heading">
+          <h2 id="customer-heading">Customer details</h2>
+          <div class="formgrid">
+            <div class="field"><label for="name">Your name <span class="required">*</span></label><input type="text" id="name" name="name" autocomplete="name" required maxlength="120"></div>
+            <div class="field"><label for="company">Company / app team</label><input type="text" id="company" name="company" maxlength="160" autocomplete="organization"></div>
+            <div class="field"><label for="email">Email <span class="required">*</span></label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+            <div class="field"><label for="preferred-contact">Preferred contact channel</label><input type="text" id="preferred-contact" name="preferred_contact" maxlength="160" placeholder="Email, Telegram, WhatsApp, Slack, etc."></div>
+            <div class="field"><label for="deadline">Submission deadline</label><input type="text" id="deadline" name="submission_deadline" maxlength="160" placeholder="e.g. Friday / already rejected / no deadline"></div>
+          </div>
+        </section>
+
+        <section class="fieldgroup" aria-labelledby="app-heading">
+          <h2 id="app-heading">App details</h2>
+          <div class="formgrid">
+            <div class="field"><label for="app">App name <span class="required">*</span></label><input type="text" id="app" name="app_name" required maxlength="160"></div>
+            <div class="field"><label for="app-store">App Store Connect app URL or bundle ID</label><input type="text" id="app-store" name="app_store_url_or_bundle_id" maxlength="500"></div>
+            <div class="field"><label for="framework">Framework</label><select id="framework" name="framework"><option>Expo</option><option>React Native CLI</option><option>Flutter</option><option>Native iOS / Swift</option><option>Capacitor / Ionic</option><option>Web app</option><option>Other / not sure</option></select></div>
+            <div class="field"><label for="status">Current status <span class="required">*</span></label><select id="status" name="current_status" required><option value="">Select status</option><option>Preparing first submission</option><option>TestFlight uploaded</option><option>Ready for Review</option><option>Rejected and resubmitting</option><option>Already live, preparing update</option><option>Launching web app</option></select></div>
+            <div class="field"><label for="build-reviewed">Version and build number under review</label><input type="text" id="build-reviewed" name="build_reviewed" maxlength="160" placeholder="e.g. 1.0.3 / build 42"></div>
+          </div>
+        </section>
+
+        <section class="fieldgroup" aria-labelledby="access-heading">
+          <h2 id="access-heading">Access</h2>
+          <fieldset class="field full">
+            <legend>How can we review the app? <span class="required">*</span></legend>
+            <p class="hint">Choose every option you can provide.</p>
+            <div class="checkgrid">
+              <label class="check"><input type="checkbox" name="review_access_method[]" value="GitHub read-only access"> GitHub read-only access</label>
+              <label class="check"><input type="checkbox" name="review_access_method[]" value="Zip upload / export link"> Zip upload / export link</label>
+              <label class="check"><input type="checkbox" name="review_access_method[]" value="TestFlight invite"> TestFlight invite</label>
+              <label class="check"><input type="checkbox" name="review_access_method[]" value="Screenshots or video walkthrough only"> Screenshots or video walkthrough only</label>
+              <label class="check"><input type="checkbox" name="review_access_method[]" value="Other / not sure"> Other / not sure</label>
+            </div>
+          </fieldset>
+          <div class="formgrid">
+            <div class="field full"><label for="links">Repo, TestFlight, app, or evidence links <span class="required">*</span></label><textarea id="links" name="access_links" required maxlength="3000" placeholder="GitHub read-only invite instructions, zip export URL, TestFlight link, App Store Connect URL, screenshots/video links, marketing URL..."></textarea></div>
+            <div class="field"><label for="repository-url">Repository URL, if applicable</label><input type="text" id="repository-url" name="repository_url" maxlength="500" placeholder="https://github.com/org/repo"></div>
+            <div class="field"><label for="testflight-email">TestFlight invite email, if applicable</label><input id="testflight-email" name="testflight_invite_email" type="email" maxlength="254"></div>
+            <div class="field"><label for="login-required">Does the app require login?</label><select id="login-required" name="login_required"><option value="">Select answer</option><option>Yes</option><option>No</option><option>Not sure</option></select></div>
+            <div class="field full"><label for="access">Demo account credentials or demo-mode instructions <span class="required">*</span></label><textarea id="access" name="demo_access" required maxlength="3000" placeholder="Do not paste production passwords. Use a disposable demo account, review mode, or instructions for arranging sensitive access separately."></textarea></div>
+            <div class="field"><label for="demo-2fa">Does demo access require 2FA or email/SMS verification?</label><input type="text" id="demo-2fa" name="demo_2fa" maxlength="500" placeholder="No / yes, describe how review can pass it"></div>
+            <div class="field"><label for="external-requirements">Specific location, hardware, QR code, or external account?</label><input type="text" id="external-requirements" name="external_requirements" maxlength="1000"></div>
+          </div>
+        </section>
+
+        <section class="fieldgroup" aria-labelledby="privacy-heading">
+          <h2 id="privacy-heading">Privacy and support</h2>
+          <div class="formgrid">
+            <div class="field"><label for="privacy">Privacy Policy URL <span class="required">*</span></label><input type="text" id="privacy" name="privacy_policy_url" required maxlength="500" placeholder="https://example.com/privacy"></div>
+            <div class="field"><label for="support">Support URL or support email <span class="required">*</span></label><input type="text" id="support" name="support_contact" required maxlength="500"></div>
+            <div class="field"><label for="marketing-url">Marketing URL, if any</label><input type="text" id="marketing-url" name="marketing_url" maxlength="500"></div>
+            <div class="field"><label for="account-creation">Does the app create user accounts? <span class="required">*</span></label><select id="account-creation" name="account_creation" required><option value="">Select answer</option><option>Yes</option><option>No</option><option>Not sure</option></select></div>
+            <div class="field full"><label for="deletion-path">Where can users initiate account deletion inside the app? <span class="required">*</span></label><textarea id="deletion-path" name="account_deletion_path" required maxlength="1000" placeholder="Example: Settings > Account > Delete Account. If no accounts or not built yet, say that explicitly."></textarea></div>
+            <div class="field full"><label for="data-collected">What user data does the app collect? <span class="required">*</span></label><textarea id="data-collected" name="data_collected" required maxlength="3000" placeholder="Email, name, photos, health data, location, analytics events, purchases, prompts, files, etc."></textarea></div>
+            <div class="field full"><label for="sdks">Which analytics/crash/ads/auth/payment SDKs are installed?</label><textarea id="sdks" name="installed_sdks" maxlength="2000" placeholder="Firebase, Sentry, RevenueCat, Stripe, Supabase, Clerk, AdMob, Meta SDK, OpenAI, etc."></textarea></div>
+            <div class="field"><label for="tracking-idfa">Does the app use tracking or IDFA?</label><input type="text" id="tracking-idfa" name="tracking_idfa" maxlength="500" placeholder="No / yes / not sure"></div>
+            <div class="field"><label for="ai-sharing">Does the app share data with third-party AI services?</label><input type="text" id="ai-sharing" name="ai_data_sharing" maxlength="1000" placeholder="No / OpenAI / Anthropic / other, with what data"></div>
+          </div>
+        </section>
+
+        <section class="fieldgroup" aria-labelledby="monetization-heading">
+          <h2 id="monetization-heading">Monetization</h2>
+          <div class="formgrid">
+            <div class="field"><label for="monetization">Does the app sell digital content, subscriptions, credits, premium features, or access? <span class="required">*</span></label><select id="monetization" name="monetization" required><option value="">Select answer</option><option>Yes</option><option>No</option><option>Not sure</option></select></div>
+            <div class="field"><label for="purchase-system">If yes, what purchase system is used?</label><select id="purchase-system" name="purchase_system"><option value="">Not applicable / select one</option><option>Apple In-App Purchase / StoreKit</option><option>External payment</option><option>Both</option><option>Not sure</option></select></div>
+            <div class="field"><label for="restore-path">Where is Restore Purchases in the app?</label><input type="text" id="restore-path" name="restore_purchase_path" maxlength="1000" placeholder="Paywall, Settings, Subscription screen, not built yet..."></div>
+            <div class="field"><label for="subscription-terms">Are subscription price, trial, renewal, and cancellation terms visible before purchase?</label><input type="text" id="subscription-terms" name="subscription_terms_visible" maxlength="500"></div>
+          </div>
+        </section>
+
+        <section class="fieldgroup" aria-labelledby="capabilities-heading">
+          <h2 id="capabilities-heading">Permissions and capabilities</h2>
+          <div class="formgrid">
+            <div class="field full"><label for="permissions">Does the app request camera, photos, microphone, location, contacts, Bluetooth, health, calendar, notifications, or tracking permissions? <span class="required">*</span></label><textarea id="permissions" name="permissions" required maxlength="2000" placeholder="List permissions and when they appear. If none, write None."></textarea></div>
+            <div class="field"><label for="push">Does the app use push notifications?</label><input type="text" id="push" name="push_notifications" maxlength="500"></div>
+            <div class="field"><label for="push-open">What should notification taps open?</label><input type="text" id="push-open" name="notification_tap_behavior" maxlength="1000"></div>
+            <div class="field"><label for="deep-links">Does the app use universal links or deep links?</label><input type="text" id="deep-links" name="deep_links" maxlength="500"></div>
+            <div class="field"><label for="sample-links">Provide sample links if yes</label><input type="text" id="sample-links" name="sample_deep_links" maxlength="1000"></div>
+          </div>
+        </section>
+
+        <section class="fieldgroup" aria-labelledby="sensitive-heading">
+          <h2 id="sensitive-heading">Sensitive categories</h2>
+          <fieldset class="field full">
+            <legend>Does the app involve any of these?</legend>
+            <div class="checkgrid">
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="children/minors"> children/minors</label>
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="user-generated content"> user-generated content</label>
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="gambling/betting/odds"> gambling/betting/odds</label>
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="finance/crypto/trading"> finance/crypto/trading</label>
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="health/medical/wellness claims"> health/medical/wellness claims</label>
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="dating/social matching"> dating/social matching</label>
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="adult content"> adult content</label>
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="AI-generated advice/content"> AI-generated advice/content</label>
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="location tracking"> location tracking</label>
+              <label class="check"><input type="checkbox" name="sensitive_categories[]" value="None of these"> None of these</label>
+            </div>
+          </fieldset>
+          <div class="field full"><label for="sensitive-controls">If yes, describe controls, disclaimers, moderation, or eligibility checks</label><textarea id="sensitive-controls" name="sensitive_category_controls" maxlength="2000"></textarea></div>
+        </section>
+
+        <section class="fieldgroup" aria-labelledby="qa-heading">
+          <h2 id="qa-heading">QA evidence</h2>
+          <div class="formgrid">
+            <div class="field"><label for="real-device">Has the release candidate been tested on a real iPhone? <span class="required">*</span></label><select id="real-device" name="real_device_tested" required><option value="">Select answer</option><option>Yes</option><option>No</option><option>Not sure</option></select></div>
+            <div class="field"><label for="device-ios">Device model and iOS version tested</label><input type="text" id="device-ios" name="device_ios_tested" maxlength="500" placeholder="iPhone 14, iOS 17.5"></div>
+            <div class="field"><label for="qa-build">Build number tested</label><input type="text" id="qa-build" name="qa_build_number" maxlength="160"></div>
+            <div class="field"><label for="qa-date">Date tested</label><input type="text" id="qa-date" name="qa_test_date" maxlength="160"></div>
+            <div class="field"><label for="first-launch">Did first launch pass?</label><input type="text" id="first-launch" name="first_launch_passed" maxlength="500"></div>
+            <div class="field"><label for="auth-flow">Did signup/login/logout pass?</label><input type="text" id="auth-flow" name="auth_flow_passed" maxlength="500"></div>
+            <div class="field"><label for="offline">Did offline/no-network behavior pass?</label><input type="text" id="offline" name="offline_behavior_passed" maxlength="500"></div>
+            <div class="field"><label for="keyboard">Did keyboard/form behavior pass?</label><input type="text" id="keyboard" name="keyboard_behavior_passed" maxlength="500"></div>
+            <div class="field"><label for="twenty-min">Did a 20-minute session complete without crash?</label><input type="text" id="twenty-min" name="twenty_minute_session_passed" maxlength="500"></div>
+            <div class="field full"><label for="qa">Known bugs, QA evidence, screenshots/video links, or concerns <span class="required">*</span></label><textarea id="qa" name="qa_evidence" required maxlength="3000"></textarea></div>
+          </div>
+        </section>
+
+        <section class="fieldgroup" aria-labelledby="rejection-heading">
+          <h2 id="rejection-heading">Previous rejection</h2>
+          <div class="formgrid">
+            <div class="field"><label for="previous-rejection">Has Apple rejected this app/build before?</label><select id="previous-rejection" name="previous_rejection"><option value="">Select answer</option><option>No</option><option>Yes</option><option>Not sure</option></select></div>
+            <div class="field full"><label for="rejection-messages">Paste rejection message(s), if any</label><textarea id="rejection-messages" name="rejection_messages" maxlength="5000"></textarea></div>
+            <div class="field full"><label for="rejection-changes">What changed since rejection?</label><textarea id="rejection-changes" name="rejection_changes" maxlength="3000"></textarea></div>
+          </div>
+        </section>
+
+        <section class="fieldgroup" aria-labelledby="output-heading">
+          <h2 id="output-heading">Output preferences</h2>
+          <fieldset class="field full">
+            <legend>Preferred deliverable <span class="required">*</span></legend>
+            <div class="checkgrid">
+              <label class="check"><input type="checkbox" name="deliverable_preferences[]" value="Markdown report"> Markdown report</label>
+              <label class="check"><input type="checkbox" name="deliverable_preferences[]" value="PDF report"> PDF report</label>
+              <label class="check"><input type="checkbox" name="deliverable_preferences[]" value="GitHub issues"> GitHub issues</label>
+              <label class="check"><input type="checkbox" name="deliverable_preferences[]" value="Linear issues"> Linear issues</label>
+              <label class="check"><input type="checkbox" name="deliverable_preferences[]" value="Notion page"> Notion page</label>
+            </div>
+          </fieldset>
+          <div class="formgrid">
+            <div class="field"><label for="fix-prs">Do you want low-risk fix PR recommendations?</label><select id="fix-prs" name="fix_pr_recommendations"><option value="">Select answer</option><option>Yes</option><option>No</option><option>Not sure</option></select></div>
+            <div class="field full"><label for="notes">Anything else the reviewer should know?</label><textarea id="notes" name="notes" maxlength="3000"></textarea></div>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button class="btn primary" type="submit">Send audit request</button>
+          <a class="btn secondary" href="mailto:hello@appready.dev?subject=AppReady%20audit%20request">Email instead</a>
+        </div>
+        <p class="hint">The full server-backed MVP posts to <code>/api/intake</code> and stores the request for manual review. GitHub Pages can host this page, but it cannot run the private intake API; if the API is unavailable, this page opens an email draft with your intake details.</p>
+      </form>
+    </main>
+
+    <footer class="footer">AppReady stores intake submissions for manual review. Do not submit production secrets through this MVP form.</footer>
+  </div>
+
+  <script src="intake.js" defer></script>
+</body>
+</html>
